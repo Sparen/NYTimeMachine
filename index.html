@@ -14,31 +14,17 @@
 <body ng-controller="TimelineController as timeline">
   <div class="container" id="top">
     <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit()" novalidate>
-      <h2 class="row text-center">How many headlines did</h2> 
+      <h2 class="row text-center">Find a random article about</h2> 
       <input name="headline" type="text" ng-model="timeline.headline" placeholder="headline" title="Headline" class="form-control row" required /> 
-      <h3 class="row text-center">make between</h3>
+      <h3 class="row text-center">from the year</h3>
       <div class="form-group">
 	<div class="row">
 	  <div class="col-md-5 col-xs-4"></div>
           <div class="col-md-2 col-xs-4">
-            <input name="startyear" type="number" ng-model="timeline.startYear" placeholder="start year" title="Start Year" required class="form-control" input-year /> 
+            <input name="year" type="number" ng-model="timeline.year" placeholder="year" title="Year" required class="form-control" input-year /> 
           </div>
 	  <div class="col-md-5 col-xs-4"></div>
 	  </div>
-	<div class="row">
-	  <div class="col-md-5 col-xs-4"></div>
-          <div class="col-md-2 col-xs-4">
-	    <p class="text-center"><b>and</b></p>
-          </div> 
-	  <div class="col-md-5 col-xs-4"></div>
-	</div>
-	<div class="row">
-	  <div class="col-md-5 col-xs-4"></div>
-          <div class="col-md-2 col-xs-4">
-            <input name="endyear" type="number" ng-model="timeline.endYear" placeholder="end year" title="End Year" required class="form-control" input-year />
-          </div>
-	  <div class="col-md-5 col-xs-4"></div>
-	</div>
       </div>
       <div class="form-group row">
 	<div class="col-md-5 col-xs-4"></div>
@@ -58,8 +44,8 @@
     <br>
     <p class="row text-center">Notes: First valid year is 1851</p>
     <br>
-    <p class="row text-center">Search: {{timeline.headline}}</p>
-    <p class="row text-center">From {{timeline.startYear}} to {{timeline.endYear}}</p>
+    <p class="row text-center">Search Region: {{timeline.headline}}</p>
+    <p class="row text-center">Year: {{timeline.year}}</p>
     <p class="row text-center">Number of hits: {{timeline.hits}}</p>
     <p class="row text-center">Results: {{timeline.articleList}}</p>
  
