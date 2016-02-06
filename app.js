@@ -41,14 +41,15 @@
         			+ timeline.endYear
         			+ '0101&sort=oldest&fl=abstract%2Clead_paragraph%2Cheadline%2Cpub_date&api-key=db6c22023a90449345e4d9e999dabb02:2:74312658')
             .success(function(data){
+                console.log(data);
 	            timeline.articleList = data.response.docs;
         	});
 
 	        timeline.hits = timeline.articleList.length;
 	        timeline.avgHits = timeline.hits / timeline.span;
 
-	        for(i = 0; i < articleList.length; i++){
-	        	var date = articleList[i].pub_date;
+	        for(i = 0; i < timeline.articleList.length; i++){
+	        	var date = timeline.articleList[i].pub_date;
 	        	var year = parseInt(date.substring(0,4));
 	        	timeline.hitsPerYear[year] += 1;
 	        }
