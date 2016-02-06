@@ -13,7 +13,7 @@
 
 <body ng-controller="TimelineController as timeline">
   <div class="container" id="top">
-    <form name="reviewForm" ng-submit="reviewForm, $valid && timeline.submit()" novalidate>
+    <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit()" novalidate>
       <h2 class="row text-center">How many headlines did</h2> 
       <input name="headline" type="text" ng-model="timeline.headline" placeholder="headline" title="Headline" class="form-control row" required /> 
       <h3 class="row text-center">make between</h3>
