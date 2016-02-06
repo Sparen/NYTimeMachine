@@ -13,9 +13,14 @@
 
         timeline.span = timeline.endYear - timeline.startYear;
         timeline.hits = 0;
-        timeline.hitsPerYear = 0;
+        timeline.avgHits = 0;
 
-        timeline.results = [];
+        timeline.hitsPerYear = [timeline.endYear - timeline.startYear];
+        for(int i = 0; i < timeline.hitsPerYear.length; i++){
+        	timeline.hitsPerYear[i] = 0;
+        }
+
+        timeline.articleList = [];
 
         /*timeline.update = function(headline, startYear, endYear){
         	timeline.headline = headline;
@@ -36,10 +41,19 @@
         			+ timeline.endYear
         			+ '0101&sort=oldest&fl=abstract%2Clead_paragraph%2Cheadline%2Cpub_date&api-key=db6c22023a90449345e4d9e999dabb02:2:74312658')
             .success(function(data){
-	            timeline.results = data.response.docs;
-	            timeline.hits = timeline.results.length;
-	            timeline.hitsPerYear = timeline.hits / timeline.span;
+	            timeline.articleList = data.response.docs;
         	});
+
+	        timeline.hits = timeline.articleList.length;
+	        timeline.avgHits = timeline.hits / timeline.span;
+
+	        for(int i = 0; i < articleList.length; i++){
+	        	var date = articleList[i].pub_date;
+	        	var year = parseInt(date.substring(0,4));
+	        	timeline.hitsPerYear[year] += 1;
+	        }
+
+	        //
         };
 
 
