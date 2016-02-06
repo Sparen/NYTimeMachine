@@ -2,7 +2,7 @@
  * Created by jadk157 on 2/6/16.
  */
 (function(){
-    var app = angular.module('timeline', [ ]);
+    var app = angular.module('timeline', ['inputyear']);
 
     app.controller('TimelineController', ['$http', function($http){
         var timeline = this;
@@ -16,7 +16,7 @@
         timeline.avgHits = 0;
 
         timeline.hitsPerYear = [timeline.endYear - timeline.startYear];
-        for(int i = 0; i < timeline.hitsPerYear.length; i++){
+        for(i = 0; i < timeline.hitsPerYear.length; i++){
         	timeline.hitsPerYear[i] = 0;
         }
 
@@ -47,7 +47,7 @@
 	        timeline.hits = timeline.articleList.length;
 	        timeline.avgHits = timeline.hits / timeline.span;
 
-	        for(int i = 0; i < articleList.length; i++){
+	        for(i = 0; i < articleList.length; i++){
 	        	var date = articleList[i].pub_date;
 	        	var year = parseInt(date.substring(0,4));
 	        	timeline.hitsPerYear[year] += 1;
