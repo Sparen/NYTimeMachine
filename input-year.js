@@ -14,7 +14,7 @@
                         return true;
                     }
 
-                    if (INTEGER_REGEXP.test(viewValue)) {
+                    if (INTEGER_REGEXP.test(viewValue) && viewValue >= 1851) {
                       // it is valid
                       return true;
                     }
