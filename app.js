@@ -29,7 +29,7 @@
         };*/
 
         timeline.showResults = function(){
-        	console.log(timeline.results);
+        	console.log(timeline.articleList);
         };
 
         timeline.submit = function(){
