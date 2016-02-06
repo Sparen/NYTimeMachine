@@ -14,14 +14,14 @@
 <body>
   <div class="container" id="top">
     <form name="reviewForm" ng-controller="TimelineController as timeline" ng-submit="reviewForm,$valid && reviewCtrl.addReview(product)" novalidate>
-      <h1 class="row text-center">How many headlines did</h1> 
+      <h2 class="row text-center">How many headlines did</h2> 
       <input name="headline" type="text" ng-model="timeline.headline" placeholder="headline" title="Headline" class="form-control row" required /> 
       <h3 class="row text-center">make between</h3>
       <div class="form-group">
 	<div class="row">
 	  <div class="col-md-5 col-xs-4"></div>
           <div class="col-md-2 col-xs-4">
-            <input name="startyear" type="number" ng-model="timeline.startYear" placeholder="1851" title="Start Year" required class="form-control" /> 
+            <input name="startyear" type="number" ng-model="timeline.startYear" placeholder="1851" title="Start Year" required class="form-control" input-year /> 
           </div>
 	  <div class="col-md-5 col-xs-4"></div>
 	  </div>
@@ -35,7 +35,7 @@
 	<div class="row">
 	  <div class="col-md-5 col-xs-4"></div>
           <div class="col-md-2 col-xs-4">
-            <input name="endyear" type="number" ng-model="timeline.endYear" placeholder="2016" title="End Year" required class="form-control" />
+            <input name="endyear" type="number" ng-model="timeline.endYear" placeholder="2016" title="End Year" required class="form-control" input-year />
           </div>
 	  <div class="col-md-5 col-xs-4"></div>
 	</div>
@@ -43,7 +43,7 @@
       <div class="form-group row">
 	<div class="col-md-5 col-xs-4"></div>
 	<div class="col-md-2 col-xs-4">
-          <p class="text-center">Review Form is {{reviewForm.$valid}}</p>
+          <p class="text-center">Form is valid: {{reviewForm.$valid}}</p>
 	</div>
 	<div class="col-md-5 col-xs-4"></div>
       </div>
