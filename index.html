@@ -20,31 +20,31 @@
     <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit()" ng-model="timeline.showFind" novalidate>
       <h2 class="row text-center">Find a random article about</h2> 
       <div class="form-group row">
-	<div class="col-md-5 col-xs-4"></div>
-	<div class="col-md-2 col-xs-4">
+	<div class="col-md-4 col-xs-3"></div>
+	<div class="col-md-4 col-xs-6">
           <select name="region" ng-model="timeline.region" placeholder="region" title="Region" class="form-control" required> 
 	  <option value="">---Please select---</option>
           <option ng-repeat="(key, value) in timeline.world" value="{{key}}">{{key}}</option>
           </select> 
         </div>
-	<div class="col-md-5 col-xs-4"></div>
+	<div class="col-md-4 col-xs-3"></div>
       </div>
       <h3 class="row text-center">from the year</h3>
       <div class="form-group">
 	<div class="row">
-	  <div class="col-md-5 col-xs-4"></div>
-          <div class="col-md-2 col-xs-4">
-            <input name="year" type="number" ng-model="timeline.year" placeholder="1851" required class="form-control" input-year /> 
+	  <div class="col-md-4 col-xs-3"></div>
+          <div class="col-md-4 col-xs-6">
+            <input name="year" type="number" ng-model="timeline.year" placeholder="1851 - Present" required class="form-control" input-year /> 
           </div>
-	  <div class="col-md-5 col-xs-4"></div>
+	  <div class="col-md-4 col-xs-3"></div>
 	  </div>
       </div>
       <div class="form-group row">
-	<div class="col-md-5 col-xs-4"></div>
-	<div class="col-md-2 col-xs-4">
+	<div class="col-md-4 col-xs-3"></div>
+	<div class="col-md-4 col-xs-6">
           <input type="submit" value="Find!" class="form-control" />
 	</div>
-	<div class="col-md-5 col-xs-4"></div>
+	<div class="col-md-4 col-xs-3"></div>
       </div>
     </form>
     </section>
@@ -59,9 +59,20 @@
     </section>
     <br>
     <section>
-    <p class="row text-center sample-show-hide" ng-show="timeline.showFind">Notes: First valid year is 1851</p>
-    <p class="row text-center">Search Region: {{timeline.region}}</p>
-    <p class="row text-center">Year: {{timeline.year}}</p>
+      <div class="row text-center">
+      <div class="col-md-2 col-xs-1"></div>
+      <div class="col-md-8 col-xs-10">
+        <h3>Search Region: {{timeline.region}}</h3>
+      </div>
+      <div class="col-md-2 col-xs-1"></div>
+      </div>
+      <div class="row text-center">
+      <div class="col-md-2 col-xs-1"></div>
+      <div class="col-md-8 col-xs-10">
+        <h3>Year: {{timeline.year}}</h3>
+      </div>
+      <div class="col-md-2 col-xs-1"></div>
+      </div>
     </section>
     <section>
     <ul class="row list-group" ng-model="timeline.articleList">
