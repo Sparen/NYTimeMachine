@@ -66,13 +66,16 @@
                     + '0101&end_date='
                     + (timeline.year + 1)
                     + '0101&sort=oldest&fl=snippet%2Cheadline&api-key=db6c22023a90449345e4d9e999dabb02:2:74312658')
-                .success(function(data){
-                    var query = data.response.docs;
-                    console.log('timeline.submit - query: ' + query);
-                    console.log('timeline.submit - countryList[i]: ' + countryList[i]);
-                    console.log("Hey");
-                    timeline.selectArticle(query, countryList[i]);
-                });
+                .success((function(i, countryList){ //solution 2 from http://stackoverflow.com/questions/19116815/how-to-pass-a-value-to-an-angularjs-http-success-callback accepted answer
+                    return function(data){
+                        var query = data.response.docs;
+                        console.log('timeline.submit - i: ' + i);
+                        console.log('timeline.submit - query: ' + query);
+                        console.log('timeline.submit - countryList[i]: ' + countryList[i]);
+                        console.log("Hey");
+                        timeline.selectArticle(query, countryList[i]);
+                    }
+                })(i, countryList));
             };
 
             // http://api.nytimes.com/svc/search/v2/articlesearch.json?q=Brazil&begin_date=19000101&end_date=19200101&sort=oldest&fl=snippet%2Cheadline&api-key=sample-key
