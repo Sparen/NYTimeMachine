@@ -14,7 +14,8 @@
             Americas: ['Brazil', 'Argentina', 'Mexico', 'Venezuela', 'Peru', 'Colombia', 'Bolivia', 'El Salvador', 'Guatemala', 'Costa Rica', 'Ecuador', 'Chile'],
             Carribean: ['Cuba', 'Haiti', 'Dominican Republic', 'Jamaica', 'Bahamas', 'Curacao', 'Kitts', 'Barbados', 'Antigua', 'Bermuda'],
             "North Africa": ['Egypt', 'Morocco', 'Tunisia', 'Libya', 'Western Sahara', 'Sudan'],
-            "Sub Saharan Africa": ['Liberia', 'Ethiopia', 'Egypt', 'Ghana', 'Somalia', 'Burundi', 'Botswana', 'Rwanda', 'Zimbabwe', 'South Africa', 'Chad', 'Nigeria', 'Benin', 'Togo', 'Equatorial Guinea', 'Senegal', 'Gambia', 'Zambia', 'Mozambique', 'Kenya', 'Tanzania']
+            "Sub Saharan Africa": ['Liberia', 'Ethiopia', 'Egypt', 'Ghana', 'Somalia', 'Burundi', 'Botswana', 'Rwanda', 'Zimbabwe', 'South Africa', 'Chad', 'Nigeria', 'Benin', 'Togo', 'Equatorial Guinea', 'Senegal', 'Gambia', 'Zambia', 'Mozambique', 'Kenya', 'Tanzania'],
+            "Middle East": ['Israel', 'Palestine', 'Jordan', 'Lebanon', 'Syria', 'Iran', 'Iraq', 'Kuwait', 'Saudia Arabia', 'Yemen', 'Oman', 'United Arab Emirates', 'Qatar', 'Bahrain']
         };
 
         timeline.region = "";
