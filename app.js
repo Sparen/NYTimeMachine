@@ -41,16 +41,18 @@
         timeline.selectArticle = function(query, country){
             console.log('Select Article - country parameter: ' + country);
             var quota_fulfill = false;
-
-            for(j = 0; j < query.length; j++){
-                var snippet = query[j].snippet;
-                var main = query[j].headline.main;
-                if((snippet.includes(country) || main.includes(country)) //making sure that the country is in the snippet or headline
-                    && quota_fulfill === false){
-                        timeline.articleList.push(query[j]);
-                        quota_fulfill = true;
+                for(j = 0; j < query.length; j++){
+                    var snippet = query[j].snippet;
+                    var main = query[j].headline.main;
+                    if(snippet != null && main != null){
+                        if((snippet.toUpperCase().includes(country) || main.toUpperCase().includes(country)) //making sure that the country is in the snippet or headline
+                        && quota_fulfill === false){
+                            timeline.articleList.push(query[j]);
+                            quota_fulfill = true;
+                    }
                 }
             }
+            console.log(timeline.articleList);
         };
 
         timeline.submit = function(){
@@ -73,7 +75,7 @@
                         console.log('timeline.submit - query: ' + query);
                         console.log('timeline.submit - countryList[i]: ' + countryList[i]);
                         console.log("Hey");
-                        timeline.selectArticle(query, countryList[i]);
+                        timeline.selectArticle(query, countryList[i].toUpperCase());
                     }
                 })(i, countryList));
             };
