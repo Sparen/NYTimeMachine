@@ -19,55 +19,59 @@
 
         timeline.articleList = [];
 
-        /*timeline.update = function(headline, startYear, endYear){
-        	timeline.headline = headline;
-        	timeline.startYear = startYear;
-        	timeline.endYear = endYear;
-        };*/
-
-        timeline.showResults = function(){
+        // Shows the list of articles to be pushed onto the screen
+        timeline.showArticles = function(){
         	console.log(timeline.articleList);
         };
 
-        timeline.submit = function(){
-
-            var countryList = timeline.world.timeline.region;
+        // Randomly selects countries from a region 
+        timeline.randomizeCountries = function(region){
+            var countryList = region;
             for(i = 0; i < countryList.length; i++){
                 var random = Math.floor((Math.random() * 10) + 1);
                 if(random > 7){
                     countryList.splice(i, 1);
                 }
             }
+            return countryList;
+        }
 
-            console.log(countryList);
+        // Adds to articleList the first article given back by the API query result that has
+        // the country's name either in its snippet or its headline
+        timeline.selectArticle = function(query, country){
+            var quota_fulfill = false;
 
-        	$http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='
-        			+ timeline.headline 
-        			+ '&begin_date=' 
-        			+ timeline.startYear
-        			+ '0101&end_date='
-        			+ timeline.endYear
-        			+ '0101&sort=oldest&fl=abstract%2Clead_paragraph%2Cheadline%2Cpub_date&api-key=db6c22023a90449345e4d9e999dabb02:2:74312658')
-            .success(function(data){
-                console.log(data);
-	            timeline.articleList = data.response.docs;
-        	});
+            for(j = 0; j < query.length; j++){
+                var snippet = query[j].snippet;
+                var main = query[j].headline.main;
+                if((snippet.includes(country) || main.includes(country))
+                    && quota_fulfill === false){
+                        timeline.articleList.push(query[j]);
+                        quota_fulfill = true;
+                }
+            }
+        }
 
-	        timeline.hits = timeline.articleList.length;
-	        timeline.avgHits = timeline.hits / timeline.span;
+        timeline.submit = function(){
 
-	        for(i = 0; i < timeline.articleList.length; i++){
-	        	var date = timeline.articleList[i].pub_date;
-	        	var year = parseInt(date.substring(0,4));
-	        	timeline.hitsPerYear[year] += 1;
-	        }
+            var countryList = randomizeCountries(timeline.world.timeline.region);
 
-	        //
+            for(i = 0; i < countryList.length; i++){
+                $http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='
+                    + countryList[i] 
+                    + '&begin_date=' 
+                    + timeline.year
+                    + '0101&end_date='
+                    + (timeline.year + 1)
+                    + '0101&sort=oldest&fl=snippet%2Cheadline&api-key=sample-key=db6c22023a90449345e4d9e999dabb02:2:74312658')
+                .success(function(data){
+                    var query = data.response.docs;
+                    timeline.selectArticle(query, countryList[i]);
+                });
+            }
+
+            console.log(timeline.articleList);
         };
-
-
-		//	http://api.nytimes.com/svc/search/v2/articlesearch.json?q=Indonesia&begin_date=19970101&end_date=20150101&fl=abstract%2Clead_paragraph%2Cheadline%2Cpub_date&api-key=sample-key
-    
     }]);
 })();
 
