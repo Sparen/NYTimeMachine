@@ -9,10 +9,10 @@
 
         timeline.year = 0;
         timeline.world = {
-            europe: ["Germany", 'France', 'Britain', 'Italy', 'Spain', 'Russia', 'Turkey'],
-            asia: ['Thailand', 'Indonesia', 'Singapore', 'China', 'Japan', 'India'],
-            americas: ['Brazil', 'Argentina', 'Mexico', 'Venezuela', 'Cuba'],
-            africa: ['Liberia', 'Ethiopia', 'Egypt', 'Ghana']
+            Europe: ["Germany", 'France', 'Britain', 'Italy', 'Spain', 'Russia', 'Turkey'],
+            Asia: ['Thailand', 'Indonesia', 'Singapore', 'China', 'Japan', 'India'],
+            Americas: ['Brazil', 'Argentina', 'Mexico', 'Venezuela', 'Cuba'],
+            Africa: ['Africa', 'Liberia', 'Ethiopia', 'Egypt', 'Ghana', 'Morocco', 'Somalia', 'Burundi', 'Botswana', 'Rwanda']
         };
 
         timeline.region = "";
@@ -48,7 +48,8 @@
                     && quota_fulfill === false){
                         var newArticle = {
                             headline: "",
-                            snippet: ""
+                            snippet: "",
+                            country: country
                         }
 
                         newArticle.headline = query[j].headline.main;
@@ -59,6 +60,7 @@
                     }
                 }
             }
+            console.log(timeline.articleList)
         };
 
         timeline.prepareDisplay = function(){
