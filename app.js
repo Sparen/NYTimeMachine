@@ -10,7 +10,7 @@
         timeline.year;
         timeline.world = {
             Europe: ["Germany", 'France', 'Britain', 'Italy', 'Spain', 'Russia', 'Turkey'],
-            Asia: ['Thailand', 'Indonesia', 'Singapore', 'China', 'Japan', 'India'],
+            Asia: ['Thailand', 'Indonesia', 'Singapore', 'China', 'Japan', 'India', 'Vietnam', 'Laos'],
             Americas: ['Brazil', 'Argentina', 'Mexico', 'Venezuela', 'Cuba'],
             Africa: ['Africa', 'Liberia', 'Ethiopia', 'Egypt', 'Ghana', 'Morocco', 'Somalia', 'Burundi', 'Botswana', 'Rwanda']
         };

@@ -33,7 +33,7 @@
 	<div class="row">
 	  <div class="col-md-5 col-xs-4"></div>
           <div class="col-md-2 col-xs-4">
-            <input name="year" type="number" ng-model="timeline.year" placeholder="year" title="Year" required class="form-control" input-year /> 
+            <input name="year" type="number" ng-model="timeline.year" placeholder="1851" required class="form-control" input-year /> 
           </div>
 	  <div class="col-md-5 col-xs-4"></div>
 	  </div>
@@ -55,15 +55,15 @@
     </section>
     <section>
     <ul class="row list-group" ng-model="timeline.articleList">
-      <div class="col-md-1 col-xs-1"></div>
-      <div class="col-md-10 col-xs-10">
+      <div class="col-md-2 col-xs-1"></div>
+      <div class="col-md-8 col-xs-10">
         <li ng-repeat="article in timeline.articleList" class="list-group-item">
 	  <h2>{{article.country}}</h4>
 	  <h4>{{article.headline}}</h4>
 	  <p>{{article.snippet}}</p>
         </li>
       </div>
-      <div class="col-md-1 col-xs-1"></div>
+      <div class="col-md-2 col-xs-1"></div>
     </ul>
     </section>
     <br>
