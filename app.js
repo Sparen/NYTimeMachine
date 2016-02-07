@@ -39,6 +39,7 @@
         // Adds to articleList the first article given back by the API query result that has
         // the country's name either in its snippet or its headline
         timeline.selectArticle = function(query, country){
+            console.log(country);
             var quota_fulfill = false;
 
             for(j = 0; j < query.length; j++){
@@ -54,7 +55,8 @@
 
         timeline.submit = function(){
 
-            var countryList = randomizeCountries(timeline.world.timeline.region);
+            var countryList = timeline.randomizeCountries(timeline.world[timeline.region]);
+            console.log(countryList);
 
             for(i = 0; i < countryList.length; i++){
                 $http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='
@@ -63,14 +65,19 @@
                     + timeline.year
                     + '0101&end_date='
                     + (timeline.year + 1)
-                    + '0101&sort=oldest&fl=snippet%2Cheadline&api-key=sample-key=db6c22023a90449345e4d9e999dabb02:2:74312658')
+                    + '0101&sort=oldest&fl=snippet%2Cheadline&api-key=db6c22023a90449345e4d9e999dabb02:2:74312658')
                 .success(function(data){
                     var query = data.response.docs;
+                    
+                    console.log(query);
+                    console.log("Hey")
                     timeline.selectArticle(query, countryList[i]);
                 });
-            }
+            };
 
-            console.log(timeline.articleList);
+            // http://api.nytimes.com/svc/search/v2/articlesearch.json?q=Brazil&begin_date=19000101&end_date=19200101&sort=oldest&fl=snippet%2Cheadline&api-key=sample-key
+
+            //timeline.showArticles();
         };
     }]);
 })();
