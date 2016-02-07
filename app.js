@@ -13,7 +13,7 @@
             asia: ['Thailand', 'Indonesia', 'Singapore', 'China', 'Japan', 'India'],
             americas: ['Brazil', 'Argentina', 'Mexico', 'Venezuela', 'Cuba'],
             africa: ['Liberia', 'Ethiopia', 'Egypt', 'Ghana']
-        }
+        };
 
         timeline.region = "";
 
@@ -34,7 +34,7 @@
                 }
             }
             return countryList;
-        }
+        };
 
         // Adds to articleList the first article given back by the API query result that has
         // the country's name either in its snippet or its headline
@@ -51,7 +51,7 @@
                         quota_fulfill = true;
                 }
             }
-        }
+        };
 
         timeline.submit = function(){
 
@@ -68,7 +68,6 @@
                     + '0101&sort=oldest&fl=snippet%2Cheadline&api-key=db6c22023a90449345e4d9e999dabb02:2:74312658')
                 .success(function(data){
                     var query = data.response.docs;
-                    
                     console.log('timeline.submit - query: ' + query);
                     console.log('timeline.submit - countryList[i]: ' + countryList[i]);
                     console.log("Hey");
