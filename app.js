@@ -7,7 +7,7 @@
     app.controller('TimelineController', ['$http', function($http){
         var timeline = this;
 
-        timeline.year = 0;
+        timeline.year;
         timeline.world = {
             Europe: ["Germany", 'France', 'Britain', 'Italy', 'Spain', 'Russia', 'Turkey'],
             Asia: ['Thailand', 'Indonesia', 'Singapore', 'China', 'Japan', 'India'],
