@@ -79,7 +79,7 @@
         };
 
         timeline.isDuplicate = function(newArticle){
-            boolean isDuplicate = false;
+            var isDuplicate = false;
             for(i = 0; i < timeline.articleList.length; i++){
                 if(newArticle.headline != "" && newArticle.headline === timeline.articleList[i].headline){
                     isDuplicate = true;
