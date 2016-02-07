@@ -52,7 +52,6 @@
                     }
                 }
             }
-            console.log(timeline.articleList);
         };
 
         timeline.prepareDisplay = function(){
@@ -73,12 +72,13 @@
 
                 timeline.articleList[i] = newArticle;
             }
+            console.log(timeline.articleList);
+
         }
 
         timeline.submit = function(){
 
             var countryList = timeline.randomizeCountries(timeline.world[timeline.region]);
-            console.log('timeline.submit - randomized country list: ' + countryList);
 
             for(i = 0; i < countryList.length; i++){
                 $http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='
@@ -91,10 +91,6 @@
                 .success((function(i, countryList){ //solution 2 from http://stackoverflow.com/questions/19116815/how-to-pass-a-value-to-an-angularjs-http-success-callback accepted answer
                     return function(data){
                         var query = data.response.docs;
-                        console.log('timeline.submit - i: ' + i);
-                        console.log('timeline.submit - query: ' + query);
-                        console.log('timeline.submit - countryList[i]: ' + countryList[i]);
-                        console.log("Hey");
                         timeline.selectArticle(query, countryList[i].toUpperCase());
                     }
                 })(i, countryList));
