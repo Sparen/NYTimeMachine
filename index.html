@@ -50,7 +50,12 @@
     <br>
     <p class="row text-center">Search Region: {{timeline.region}}</p>
     <p class="row text-center">Year: {{timeline.year}}</p>
-    <p class="row text-center">Results: {{timeline.articleList}}</p>
+    <ul class="row text-center" ng-model="timeline.articleList">
+      <li ng-repeat="article in timeline.articleList">
+	<h4 class="text-center">{{article.headline}}</h4>
+	<p class="text-center">{{article.snippet}}</p>
+      </li>
+    </ul>
  
     <br>
   </div>
