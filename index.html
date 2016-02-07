@@ -25,7 +25,7 @@
           <option ng-repeat="(key, value) in timeline.world" value="{{key}}">{{key}}</option>
           </select> 
         </div>
-	</div class="col-md-5 col-xs-4"></div>
+	<div class="col-md-5 col-xs-4"></div>
       </div>
       <h3 class="row text-center">from the year</h3>
       <div class="form-group">
@@ -51,12 +51,15 @@
     <p class="row text-center">Search Region: {{timeline.region}}</p>
     <p class="row text-center">Year: {{timeline.year}}</p>
     <ul class="row text-center" ng-model="timeline.articleList">
-      <li ng-repeat="article in timeline.articleList">
-	<h4 class="text-center">{{article.headline}}</h4>
-	<p class="text-center">{{article.snippet}}</p>
-      </li>
+      <div class="col-md-1 col-xs-1"></div>
+      <div class="col-md-10 col-xs-10">
+        <li ng-repeat="article in timeline.articleList">
+	  <h4 class="text-center">{{article.headline}}</h4>
+	  <p class="text-center">{{article.snippet}}</p>
+        </li>
+      </div>
+      <div class="col-md-1 col-xs-1"></div>
     </ul>
- 
     <br>
   </div>
 
