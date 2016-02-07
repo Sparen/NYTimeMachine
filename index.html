@@ -16,7 +16,7 @@
   <div class="container" id="top">
     <h1 class="row text-center" style="font-family:englishtowne;font-size:56px">NYTimeMachine</h1> 
     <section ng-show="timeline.showFind">
-    <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit() && timeline.hideSearch()" ng-model="timeline.showFind" novalidate>
+    <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit()" ng-model="timeline.showFind" novalidate>
       <h2 class="row text-center">Find a random article about</h2> 
       <div class="form-group row">
 	<div class="col-md-5 col-xs-4"></div>
@@ -51,14 +51,14 @@
       <div class="row text-center">
 	<div class="col-md-5 col-xs-4"></div>
 	<div class="col-md-2 col-xs-4">
-          <input type="submit" value="Show Search Engine" class="form-control" ng-click="timeline.showSearch()" ng-model="timeline.showFind" />
+          <input type="submit" value="Show Search Engine" class="form-control" ng-click="timeline.showSearch()" />
 	</div>
 	<div class="col-md-5 col-xs-4"></div>
       </div>
     </section>
     <br>
     <section>
-    <p class="row text-center">Notes: First valid year is 1851</p>
+    <p class="row text-center" ng-show="timeline.showFind">Notes: First valid year is 1851</p>
     <p class="row text-center">Search Region: {{timeline.region}}</p>
     <p class="row text-center">Year: {{timeline.year}}</p>
     </section>

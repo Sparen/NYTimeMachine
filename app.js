@@ -12,7 +12,7 @@
             Europe: ["Germany", 'France', 'Britain', 'Italy', 'Spain', 'Russia', 'Turkey', 'Austria', 'Hungary', 'Norway', 'Sweden', 'Finland', 'Denmark', 'Estonia', 'Latvia', 'Lithuania', 'Serbia', 'Greece'],
             Asia: ['Thailand', 'Indonesia', 'Singapore', 'China', 'Japan', 'India', 'Vietnam', 'Laos'],
             Americas: ['Brazil', 'Argentina', 'Mexico', 'Venezuela', 'Peru', 'Colombia', 'Bolivia', 'El Salvador', 'Guatemala', 'Costa Rica', 'Ecuador', 'Chile'],
-            Carribean: ['Cuba', 'Haiti', 'Dominican Republic', 'Jamaica', 'Bahamas', 'Curacao', 'Nevis', 'Barbados', 'Antigua', 'Bermuda'],
+            Carribean: ['Cuba', 'Haiti', 'Dominican Republic', 'Jamaica', 'Bahamas', 'Curacao', 'Kitts', 'Barbados', 'Antigua', 'Bermuda'],
             North_Africa: ['Egypt', 'Morocco', 'Tunisia', 'Libya', 'Western Sahara', 'Sudan'],
             Sub_Saharan_Africa: ['Liberia', 'Ethiopia', 'Egypt', 'Ghana', 'Somalia', 'Burundi', 'Botswana', 'Rwanda', 'Zimbabwe', 'South Africa', 'Chad', 'Nigeria', 'Benin', 'Togo', 'Equatorial Guinea', 'Senegal', 'Gambia', 'Zambia', 'Mozambique', 'Kenya', 'Tanzania']
         };
@@ -90,6 +90,7 @@
         };
 
         timeline.submit = function(){
+            timeline.hideSearch();
 
             var countryList = timeline.randomizeCountries(timeline.world[timeline.region]);
 
