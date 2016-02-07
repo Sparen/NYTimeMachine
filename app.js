@@ -2,7 +2,7 @@
  * Created by jadk157 on 2/6/16.
  */
 (function(){
-    var app = angular.module('timeline', ['inputyear']);
+    var app = angular.module('timeline', ['inputyear', 'ngAnimate']);
 
     app.controller('TimelineController', ['$http', function($http){
         var timeline = this;
@@ -20,6 +20,8 @@
         timeline.region = "";
 
         timeline.articleList = [];
+
+        timeline.showFind = true;
 
         // Shows the list of articles to be pushed onto the screen
         timeline.showArticles = function(){
