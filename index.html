@@ -9,13 +9,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="animation.css" />
 
 </head>
 
 <body ng-controller="TimelineController as timeline" style="font-family:'Times New Roman', 'Times', 'Serif'">
   <div class="container" id="top">
     <h1 class="row text-center" style="font-family:englishtowne;font-size:56px">NYTimeMachine</h1> 
-    <section ng-show="timeline.showFind">
+    <section ng-show="timeline.showFind" class="sample-show-hide">
     <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit()" ng-model="timeline.showFind" novalidate>
       <h2 class="row text-center">Find a random article about</h2> 
       <div class="form-group row">
@@ -47,7 +48,7 @@
       </div>
     </form>
     </section>
-    <section ng-hide="timeline.showFind">
+    <section ng-hide="timeline.showFind" class="sample-show-hide">
       <div class="row text-center">
 	<div class="col-md-5 col-xs-4"></div>
 	<div class="col-md-2 col-xs-4">
@@ -58,7 +59,7 @@
     </section>
     <br>
     <section>
-    <p class="row text-center" ng-show="timeline.showFind">Notes: First valid year is 1851</p>
+    <p class="row text-center sample-show-hide" ng-show="timeline.showFind">Notes: First valid year is 1851</p>
     <p class="row text-center">Search Region: {{timeline.region}}</p>
     <p class="row text-center">Year: {{timeline.year}}</p>
     </section>
@@ -86,6 +87,7 @@
   <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
   <script src="app.js"></script>
   <script src="input-year.js"></script>
 </body>
