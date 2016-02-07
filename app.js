@@ -2,7 +2,7 @@
  * Created by jadk157 on 2/6/16.
  */
 (function(){
-    var app = angular.module('timeline', ['inputyear', 'ngAnimate']);
+    var app = angular.module('timeline', ['inputyear']);
 
     app.controller('TimelineController', ['$http', function($http){
         var timeline = this;
@@ -22,6 +22,13 @@
         timeline.articleList = [];
 
         timeline.showFind = true;
+
+        timeline.showSearch = function() {
+            timeline.showFind = true;
+        };
+        timeline.hideSearch = function() {
+            timeline.showFind = false;
+        };
 
         // Shows the list of articles to be pushed onto the screen
         timeline.showArticles = function(){
