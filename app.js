@@ -55,6 +55,26 @@
             console.log(timeline.articleList);
         };
 
+        timeline.prepareDisplay = function(){
+            
+            for(i = 0; i < timeline.articleList.length; i++){
+                var newArticle = {
+                    headline: "",
+                    snippet: ""
+                }
+
+                var currArticle = timeline.articleList[i];
+                if(currArticle.headline.main != null){
+                    newArticle.headline = currArticle.headline.main;
+                }
+                if(currArticle.snippet != null){
+                    newArticle.snippet = currArticle.snippet;
+                }
+
+                timeline.articleList[i] = newArticle;
+            }
+        }
+
         timeline.submit = function(){
 
             var countryList = timeline.randomizeCountries(timeline.world[timeline.region]);
@@ -80,9 +100,8 @@
                 })(i, countryList));
             };
 
-            // http://api.nytimes.com/svc/search/v2/articlesearch.json?q=Brazil&begin_date=19000101&end_date=19200101&sort=oldest&fl=snippet%2Cheadline&api-key=sample-key
+            timeline.prepareDisplay();
 
-            //timeline.showArticles();
         };
     }]);
 })();
