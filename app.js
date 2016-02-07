@@ -39,16 +39,23 @@
         // Adds to articleList the first article given back by the API query result that has
         // the country's name either in its snippet or its headline
         timeline.selectArticle = function(query, country){
-            console.log('Select Article - country parameter: ' + country);
             var quota_fulfill = false;
-                for(j = 0; j < query.length; j++){
-                    var snippet = query[j].snippet;
-                    var main = query[j].headline.main;
-                    if(snippet != null && main != null){
-                        if((snippet.toUpperCase().includes(country) || main.toUpperCase().includes(country)) //making sure that the country is in the snippet or headline
-                        && quota_fulfill === false){
-                            timeline.articleList.push(query[j]);
-                            quota_fulfill = true;
+            for(j = 0; j < query.length; j++){
+                var snippet = query[j].snippet;
+                var main = query[j].headline.main;
+                if(snippet != null && main != null){
+                    if((snippet.toUpperCase().includes(country) || main.toUpperCase().includes(country)) //making sure that the country is in the snippet or headline
+                    && quota_fulfill === false){
+                        var newArticle = {
+                            headline: "",
+                            snippet: ""
+                        }
+
+                        newArticle.headline = query[j].headline.main;
+                        newArticle.snippet = query[j].snippet;                        
+
+                        timeline.articleList.push(newArticle);
+                        quota_fulfill = true;                        
                     }
                 }
             }
@@ -56,13 +63,16 @@
 
         timeline.prepareDisplay = function(){
             
+            console.log(timeline.articleList);
             for(i = 0; i < timeline.articleList.length; i++){
+
                 var newArticle = {
                     headline: "",
                     snippet: ""
                 }
 
                 var currArticle = timeline.articleList[i];
+                console.log(currArticle);
                 if(currArticle.headline.main != null){
                     newArticle.headline = currArticle.headline.main;
                 }
@@ -72,9 +82,8 @@
 
                 timeline.articleList[i] = newArticle;
             }
-            console.log(timeline.articleList);
 
-        }
+        };
 
         timeline.submit = function(){
 
@@ -96,7 +105,6 @@
                 })(i, countryList));
             };
 
-            timeline.prepareDisplay();
 
         };
     }]);
