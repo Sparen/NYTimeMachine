@@ -7,18 +7,15 @@
     app.controller('TimelineController', ['$http', function($http){
         var timeline = this;
 
-        timeline.headline = "";
-        timeline.startYear = 0;
-        timeline.endYear = 0;
-
-        timeline.span = timeline.endYear - timeline.startYear;
-        timeline.hits = 0;
-        timeline.avgHits = 0;
-
-        timeline.hitsPerYear = [timeline.endYear - timeline.startYear];
-        for(i = 0; i < timeline.hitsPerYear.length; i++){
-        	timeline.hitsPerYear[i] = 0;
+        timeline.year = 0;
+        timeline.world = {
+            europe: ["Germany", 'France', 'Britain', 'Italy', 'Spain', 'Russia', 'Turkey'],
+            asia: ['Thailand', 'Indonesia', 'Singapore', 'China', 'Japan', 'India'],
+            americas: ['Brazil', 'Argentina', 'Mexico', 'Venezuela', 'Cuba'],
+            africa: ['Liberia', 'Ethiopia', 'Egypt', 'Ghana']
         }
+
+        timeline.region = "";
 
         timeline.articleList = [];
 
@@ -33,6 +30,17 @@
         };
 
         timeline.submit = function(){
+
+            var countryList = timeline.world.timeline.region;
+            for(i = 0; i < countryList.length; i++){
+                var random = Math.floor((Math.random() * 10) + 1);
+                if(random > 7){
+                    countryList.splice(i, 1);
+                }
+            }
+
+            console.log(countryList);
+
         	$http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='
         			+ timeline.headline 
         			+ '&begin_date=' 
