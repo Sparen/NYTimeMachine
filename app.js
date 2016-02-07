@@ -90,6 +90,7 @@
         };
 
         timeline.submit = function(){
+            timeline.articleList = [];
             timeline.hideSearch();
 
             var countryList = timeline.randomizeCountries(timeline.world[timeline.region]);
