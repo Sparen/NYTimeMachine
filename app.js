@@ -25,9 +25,11 @@
 
         timeline.showSearch = function() {
             timeline.showFind = true;
+            return true;
         };
         timeline.hideSearch = function() {
             timeline.showFind = false;
+            return true;
         };
 
         // Shows the list of articles to be pushed onto the screen
