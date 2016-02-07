@@ -57,37 +57,26 @@
                         newArticle.headline = query[j].headline.main;
                         newArticle.snippet = query[j].snippet;                        
 
-                        timeline.articleList.push(newArticle);
-                        quota_fulfill = true;                        
+                        if(!timeline.isDuplicate(newArticle)){
+                            timeline.articleList.push(newArticle);
+                            quota_fulfill = true; 
+                        }
                     }
                 }
             }
             console.log(timeline.articleList)
         };
 
-        timeline.prepareDisplay = function(){
-            
-            console.log(timeline.articleList);
+        timeline.isDuplicate = function(newArticle){
+            boolean isDuplicate = false;
             for(i = 0; i < timeline.articleList.length; i++){
-
-                var newArticle = {
-                    headline: "",
-                    snippet: ""
+                if(newArticle.headline != "" && newArticle.headline === timeline.articleList[i].headline){
+                    isDuplicate = true;
                 }
-
-                var currArticle = timeline.articleList[i];
-                console.log(currArticle);
-                if(currArticle.headline.main != null){
-                    newArticle.headline = currArticle.headline.main;
-                }
-                if(currArticle.snippet != null){
-                    newArticle.snippet = currArticle.snippet;
-                }
-
-                timeline.articleList[i] = newArticle;
             }
 
-        };
+            return isDuplicate;
+        }
 
         timeline.submit = function(){
 
