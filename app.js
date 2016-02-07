@@ -39,13 +39,13 @@
         // Adds to articleList the first article given back by the API query result that has
         // the country's name either in its snippet or its headline
         timeline.selectArticle = function(query, country){
-            console.log(country);
+            console.log('Select Article - country parameter: ' + country);
             var quota_fulfill = false;
 
             for(j = 0; j < query.length; j++){
                 var snippet = query[j].snippet;
                 var main = query[j].headline.main;
-                if((snippet.includes(country) || main.includes(country))
+                if((snippet.includes(country) || main.includes(country)) //making sure that the country is in the snippet or headline
                     && quota_fulfill === false){
                         timeline.articleList.push(query[j]);
                         quota_fulfill = true;
@@ -56,7 +56,7 @@
         timeline.submit = function(){
 
             var countryList = timeline.randomizeCountries(timeline.world[timeline.region]);
-            console.log(countryList);
+            console.log('timeline.submit - randomized country list: ' + countryList);
 
             for(i = 0; i < countryList.length; i++){
                 $http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='
@@ -69,8 +69,9 @@
                 .success(function(data){
                     var query = data.response.docs;
                     
-                    console.log(query);
-                    console.log("Hey")
+                    console.log('timeline.submit - query: ' + query);
+                    console.log('timeline.submit - countryList[i]: ' + countryList[i]);
+                    console.log("Hey");
                     timeline.selectArticle(query, countryList[i]);
                 });
             };
