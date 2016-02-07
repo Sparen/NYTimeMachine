@@ -10,12 +10,15 @@
         timeline.year;
         timeline.world = {
             Europe: ["Germany", 'France', 'Britain', 'Italy', 'Spain', 'Russia', 'Turkey', 'Austria', 'Hungary', 'Norway', 'Sweden', 'Finland', 'Denmark', 'Estonia', 'Latvia', 'Lithuania', 'Serbia', 'Greece'],
-            Asia: ['Thailand', 'Indonesia', 'Singapore', 'China', 'Japan', 'India', 'Vietnam', 'Laos'],
+            "East Asia": ['China', 'Japan', 'Korea', 'North Korea', 'South Korea', 'Taiwan', 'Mongolia'],
+            "Southeast Asia": ['Thailand', 'Indonesia', 'Singapore', 'Vietnam', 'Laos', 'Cambodia', 'Malaysia', 'Burma', 'Brunei', 'East Timor'],
+            "Indian Subcontinent": ['India', 'Nepal', 'Bhutan', 'Maldives', 'Sri Lanka', 'Bangladesh', 'Pakistan'],
             Americas: ['Brazil', 'Argentina', 'Mexico', 'Venezuela', 'Peru', 'Colombia', 'Bolivia', 'El Salvador', 'Guatemala', 'Costa Rica', 'Ecuador', 'Chile'],
             Carribean: ['Cuba', 'Haiti', 'Dominican Republic', 'Jamaica', 'Bahamas', 'Curacao', 'Kitts', 'Barbados', 'Antigua', 'Bermuda'],
             "North Africa": ['Egypt', 'Morocco', 'Tunisia', 'Libya', 'Western Sahara', 'Sudan'],
             "Sub Saharan Africa": ['Liberia', 'Ethiopia', 'Egypt', 'Ghana', 'Somalia', 'Burundi', 'Botswana', 'Rwanda', 'Zimbabwe', 'South Africa', 'Chad', 'Nigeria', 'Benin', 'Togo', 'Equatorial Guinea', 'Senegal', 'Gambia', 'Zambia', 'Mozambique', 'Kenya', 'Tanzania'],
-            "Middle East": ['Israel', 'Palestine', 'Jordan', 'Lebanon', 'Syria', 'Iran', 'Iraq', 'Kuwait', 'Saudia Arabia', 'Yemen', 'Oman', 'United Arab Emirates', 'Qatar', 'Bahrain']
+            "Middle East": ['Israel', 'Palestine', 'Jordan', 'Lebanon', 'Syria', 'Iran', 'Iraq', 'Kuwait', 'Saudia Arabia', 'Yemen', 'Oman', 'United Arab Emirates', 'Qatar', 'Bahrain'],
+            Oceania: ['Australia', 'New Zealand', 'Papua New Guinea', 'Fiji', 'New Caledonia', 'Vanuatu', 'Tuvalu']
         };
 
         timeline.region = "";
