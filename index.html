@@ -15,8 +15,8 @@
 <body ng-controller="TimelineController as timeline" style="font-family:'Times New Roman', 'Times', 'Serif'">
   <div class="container" id="top">
     <h1 class="row text-center" style="font-family:englishtowne;font-size:56px">NYTimeMachine</h1> 
-    <section ng-show="timeline.showFind" ng-model="timeline.showFind">
-    <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit() && timeline.hideSearch()" novalidate>
+    <section ng-show="timeline.showFind">
+    <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit() && timeline.hideSearch()" ng-model="timeline.showFind" novalidate>
       <h2 class="row text-center">Find a random article about</h2> 
       <div class="form-group row">
 	<div class="col-md-5 col-xs-4"></div>
@@ -47,11 +47,11 @@
       </div>
     </form>
     </section>
-    <section ng-show="!timeline.showFind" ng-model="timeline.showFind">
+    <section ng-hide="timeline.showFind">
       <div class="row text-center">
 	<div class="col-md-5 col-xs-4"></div>
 	<div class="col-md-2 col-xs-4">
-          <input type="submit" value="Show Search Engine" class="form-control" ng-click="timeline.showSearch()" />
+          <input type="submit" value="Show Search Engine" class="form-control" ng-click="timeline.showSearch()" ng-model="timeline.showFind" />
 	</div>
 	<div class="col-md-5 col-xs-4"></div>
       </div>

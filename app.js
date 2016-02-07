@@ -63,7 +63,7 @@
                             headline: "",
                             snippet: "",
                             country: country
-                        }
+                        };
 
                         newArticle.headline = query[j].headline.main;
                         newArticle.snippet = query[j].snippet;                        
@@ -75,7 +75,7 @@
                     }
                 }
             }
-            console.log(timeline.articleList)
+            console.log(timeline.articleList);
         };
 
         timeline.isDuplicate = function(newArticle){
@@ -87,7 +87,7 @@
             }
 
             return isDuplicate;
-        }
+        };
 
         timeline.submit = function(){
 
