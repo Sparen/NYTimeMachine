@@ -15,7 +15,16 @@
   <div class="container" id="top">
     <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit()" novalidate>
       <h2 class="row text-center">Find a random article about</h2> 
-      <input name="headline" type="text" ng-model="timeline.headline" placeholder="headline" title="Headline" class="form-control row" required /> 
+      <div class="form-group row">
+	<div class="col-md-5 col-xs-4"></div>
+	<div class="col-md-2 col-xs-4">
+          <select name="region" ng-model="timeline.region" placeholder="region" title="Region" class="form-control" required> 
+	  <option value="">---Please select---</option>
+          <option ng-repeat="(key, value) in timeline.world" value="{{key}}">{{key}}</option>
+          </select> 
+        </div>
+	</div class="col-md-5 col-xs-4"></div>
+      </div>
       <h3 class="row text-center">from the year</h3>
       <div class="form-group">
 	<div class="row">
@@ -44,7 +53,7 @@
     <br>
     <p class="row text-center">Notes: First valid year is 1851</p>
     <br>
-    <p class="row text-center">Search Region: {{timeline.headline}}</p>
+    <p class="row text-center">Search Region: {{timeline.region}}</p>
     <p class="row text-center">Year: {{timeline.year}}</p>
     <p class="row text-center">Number of hits: {{timeline.hits}}</p>
     <p class="row text-center">Results: {{timeline.articleList}}</p>
