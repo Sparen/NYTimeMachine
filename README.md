@@ -1,6 +1,6 @@
 # NYTimeMachine #
 
-NYTimeMachine is a web app that allows users to get small glimpses of world events throughout time, viewed through the lens of the New York Times.
+NYTimeMachine is a web app that allows users to get small glimpses of world events throughout time, viewed through the lens of the New York Times. https://limitless-earth-13104.herokuapp.com/
 
 We hope this web app provides a fun way to discover more about a) world events during various points in history and b) how these events were covered by an American newspaper, the New York Times.
 
