@@ -100,7 +100,7 @@
             var countryList = timeline.randomizeCountries(timeline.world[timeline.region]);
 
             for(i = 0; i < countryList.length; i++){
-                $http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='
+                $http.get('https://api.nytimes.com/svc/search/v2/articlesearch.json?q='
                     + countryList[i] 
                     + '&begin_date=' 
                     + timeline.year
