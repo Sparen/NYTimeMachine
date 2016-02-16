@@ -8,85 +8,101 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="animation.css" />
 
 </head>
 
 <body ng-controller="TimelineController as timeline" style="font-family:'Times New Roman', 'Times', 'Serif'">
+
   <div class="container" id="top">
     <h1 class="row text-center" style="font-family:englishtowne;font-size:56px">NYTimeMachine</h1> 
+
     <section ng-show="timeline.showFind" class="sample-show-hide">
-    <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit()" ng-model="timeline.showFind" novalidate>
-      <h2 class="row text-center">Find a random article about</h2> 
-      <div class="form-group row">
-	<div class="col-md-4 col-xs-3"></div>
-	<div class="col-md-4 col-xs-6">
-          <select name="region" ng-model="timeline.region" placeholder="region" title="Region" class="form-control" required> 
-	  <option value="">---Please select---</option>
-          <option ng-repeat="(key, value) in timeline.world" value="{{key}}">{{key}}</option>
-          </select> 
-        </div>
-	<div class="col-md-4 col-xs-3"></div>
-      </div>
-      <h3 class="row text-center">from the year</h3>
-      <div class="form-group">
-	<div class="row">
-	  <div class="col-md-4 col-xs-3"></div>
-          <div class="col-md-4 col-xs-6">
-            <input name="year" type="number" ng-model="timeline.year" placeholder="1851 - Present" required class="form-control" input-year /> 
+
+      <form name="reviewForm" ng-submit="reviewForm.$valid && timeline.submit()" ng-model="timeline.showFind" novalidate>
+
+        <h2 class="row text-center">What was happening in</h2> 
+
+        <div class="form-group row">
+  	      <div class="col-md-4 col-xs-3"></div>
+  	      <div class="col-md-4 col-xs-6">
+            <select name="region" ng-model="timeline.region" placeholder="region" title="Region" class="form-control" required> 
+  	          <option value="">Region</option>
+              <option ng-repeat="(key, value) in timeline.world" value="{{key}}">{{key}}</option>
+            </select> 
           </div>
-	  <div class="col-md-4 col-xs-3"></div>
-	  </div>
-      </div>
-      <div class="form-group row">
-	<div class="col-md-4 col-xs-3"></div>
-	<div class="col-md-4 col-xs-6">
-          <input type="submit" value="Find!" class="form-control" />
-	</div>
-	<div class="col-md-4 col-xs-3"></div>
-      </div>
-    </form>
+
+  	      <div class="col-md-4 col-xs-3"></div>
+        </div>
+
+        <h2 class="row text-center">during the year</h2>
+        <div class="form-group">
+  	      <div class="row">
+  	        <div class="col-md-4 col-xs-3"></div>
+            <div class="col-md-4 col-xs-6">
+              <input name="year" type="number" ng-model="timeline.year" placeholder="1851 - Present" required class="form-control" input-year/> 
+            </div>
+  	        <div class="col-md-4 col-xs-3"></div>
+  	      </div>
+        </div>
+
+        <div class="form-group row">
+  	      <div class="col-md-4 col-xs-3"></div>
+  	      <div class="col-md-4 col-xs-6">
+            <input type="submit" value="Find!" class="form-control" />
+  	      </div>
+  	      <div class="col-md-4 col-xs-3"></div>
+        </div>
+
+      </form>
     </section>
+
     <section ng-hide="timeline.showFind" class="sample-show-hide">
       <div class="row text-center">
-	<div class="col-md-5 col-xs-4"></div>
-	<div class="col-md-2 col-xs-4">
-          <input type="submit" value="Show Search Engine" class="form-control" ng-click="timeline.showSearch()" />
-	</div>
-	<div class="col-md-5 col-xs-4"></div>
+      	<div class="col-md-5 col-xs-4"></div>
+      	<div class="col-md-2 col-xs-4">
+          <input type="submit" value="Home" class="form-control" ng-click="timeline.showSearch()" />
+      	</div>
+	      <div class="col-md-5 col-xs-4"></div>
       </div>
     </section>
+
     <br>
+
     <section>
       <div class="row text-center">
-      <div class="col-md-2 col-xs-1"></div>
-      <div class="col-md-8 col-xs-10">
-        <h3>Search Region: {{timeline.region}}</h3>
+        <div class="col-md-2 col-xs-1"></div>
+        <div class="col-md-8 col-xs-10">
+          <h3>Search Region: {{timeline.region}}</h3>
+        </div>
+        <div class="col-md-2 col-xs-1"></div>
       </div>
-      <div class="col-md-2 col-xs-1"></div>
-      </div>
+
       <div class="row text-center">
-      <div class="col-md-2 col-xs-1"></div>
-      <div class="col-md-8 col-xs-10">
-        <h3>Year: {{timeline.year}}</h3>
-      </div>
-      <div class="col-md-2 col-xs-1"></div>
+        <div class="col-md-2 col-xs-1"></div>
+        <div class="col-md-8 col-xs-10">
+          <h3>Year: {{timeline.year}}</h3>
+        </div>
+        <div class="col-md-2 col-xs-1"></div>
       </div>
     </section>
+
     <section>
-    <ul class="row list-group" ng-model="timeline.articleList">
-      <div class="col-md-2 col-xs-1"></div>
-      <div class="col-md-8 col-xs-10">
-        <li ng-repeat="article in timeline.articleList" class="list-group-item">
-	  <h2>{{article.country}}</h4>
-	  <h4>{{article.headline}}</h4>
-	  <p>{{article.snippet}}</p>
-        </li>
-      </div>
-      <div class="col-md-2 col-xs-1"></div>
-    </ul>
+      <ul class="row list-group" ng-model="timeline.articleList">
+        <div class="col-md-2 col-xs-1"></div>
+        <div class="col-md-8 col-xs-10">
+          <li ng-repeat="article in timeline.articleList" class="list-group-item">
+        	  <h2>{{article.country}}</h4>
+        	  <h4>{{article.headline}}</h4>
+        	  <p>{{article.snippet}}</p>
+          </li>
+        </div>
+        <div class="col-md-2 col-xs-1"></div>
+      </ul>
     </section>
+
     <br>
   </div>
 
@@ -101,6 +117,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
   <script src="app.js"></script>
   <script src="input-year.js"></script>
+
+  <script src='material-forms.js'></script>
+
 </body>
 
 </html>
